@@ -1,0 +1,30 @@
+.side-menu{
+    background-color: #7f90a8;
+}
+.side-menu ul{
+    width: 100%;
+}
+.side-menu ul li{
+    width: 100%;
+}
+
+.side-menu ul li:hover{
+    color: #99a6b9;
+    background-color: #e5e9ee;
+    border-radius: 4px;
+}
+.side-menu ul li a{
+    color: #e5e9ee;
+    width: 100%;
+}
+.side-menu ul li a i{
+    width: 20%;
+}
+.side-menu ul li a span{
+    width: 80%;
+}
+.side-menu ul li a:hover {
+    color: #99a6b9;
+    font-size: 16px;
+    font-weight: 500;
+}
