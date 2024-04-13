@@ -1,0 +1,27 @@
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th *ngFor="let head of headList">{{ head | uppercase }}</th>
+      <th *ngIf="editable">EDIT</th>
+      <th *ngIf="deleteable">DELETE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of rowsList">
+      <td *ngFor="let head of headList">
+        <div *ngIf="head == 'created_at'">
+          {{ row[head] | date }}
+        </div>
+        <div *ngIf="head != 'created_at'">
+          {{ row[head] }}
+        </div>
+      </td>
+      <td *ngIf="editable">
+        <button class="col-auto btn btn-success" (click)="editRow(row)">Edit</button>
+      </td>
+      <td *ngIf="deleteable">
+        <button class="col-auto btn btn-danger" (click)="deleteRow(row)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,1 +1,3 @@
-<p>view-coupon works!</p>
+<div class="my-5">
+    <app-view-table [headList]="headerList" [rowsList]="coupons" (onEdit)="editCoupon($event)" (onDelete)="deleteCoupon($event)"></app-view-table>
+</div>
