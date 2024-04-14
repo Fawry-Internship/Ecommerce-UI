@@ -1,4 +1,4 @@
-export class AccountLogin {
-  constructor(public email: string, public password: string) {
-  }
+export interface AccountLogin {
+  email: string,
+  password: string
 }

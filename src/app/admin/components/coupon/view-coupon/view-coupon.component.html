@@ -1,3 +1,8 @@
-<div class="my-5">
-  <app-view-table [headList]="headerList" [rowsList]="coupons" (onEdit)="editCoupon($event)" (onDelete)="deleteCoupon($event)"></app-view-table>
+<div class="container">
+  <div class="my-2">
+    <app-add-coupon></app-add-coupon>
+  </div>
+  <div class="my-2">
+    <app-view-table [headList]="headerList" [rowsList]="coupons" [editable]="true" [deleteable]="true" (onEdit)="editCoupon($event)" (onDelete)="deleteCoupon($event)"></app-view-table>
+  </div>
 </div>

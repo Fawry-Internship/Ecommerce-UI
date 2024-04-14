@@ -1,4 +1,5 @@
-export class AccountRegister {
-  constructor(public name: string, public email: string, public password: string) {
-  }
+export interface AccountRegister {
+  name: string,
+  email: string, 
+  password: string
 }

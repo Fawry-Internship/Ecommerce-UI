@@ -1,7 +1,8 @@
 <table class="table table-bordered table-hover">
   <thead>
     <tr>
-      <th *ngFor="let head of headList">{{ head | uppercase }}</th>
+      <th *ngFor="let head of headList">{{ head }}</th>
+      <th *ngIf="active">Active</th>
       <th *ngIf="editable">EDIT</th>
       <th *ngIf="deleteable">DELETE</th>
     </tr>
@@ -9,12 +10,15 @@
   <tbody>
     <tr *ngFor="let row of rowsList">
       <td *ngFor="let head of headList">
-        <div *ngIf="head == 'created_at'">
-          {{ row[head] | date }}
+        <div *ngIf="head == 'createdAt'">
+          {{ row[head] | date:'short' }}
         </div>
-        <div *ngIf="head != 'created_at'">
+        <div *ngIf="head != 'createdAt'">
           {{ row[head] }}
         </div>
+      </td>
+      <td *ngIf="active">
+        <button class="col-auto btn btn-success" (click)="isActive(row)">Active</button>
       </td>
       <td *ngIf="editable">
         <button class="col-auto btn btn-success" (click)="editRow(row)">Edit</button>

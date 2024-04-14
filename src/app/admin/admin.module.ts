@@ -12,7 +12,7 @@ import { CouponService } from './services/coupon.service';
 import { ViewTableComponent } from './components/shared/view-table/view-table.component';
 import { RouterModule } from '@angular/router';
 import { AddNewComponent } from './components/shared/add-new/add-new.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ViewUsersComponent } from './components/users/view-users/view-users.component';
 import {UsersComponent} from "./components/users/users.component";
 
@@ -35,7 +35,8 @@ import {UsersComponent} from "./components/users/users.component";
     CommonModule,
     HttpClientModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     CouponService

@@ -1,16 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { couponHost } from 'src/app/environments/environments';
+import { Observable } from 'rxjs';
+import { Coupon } from 'src/app/models/coupon';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CouponService {
-  url = "http://localhost:9090/coupon/allCoupons";
+  private baseUrl = couponHost();
 
   constructor(private http:HttpClient) { }
   
-  getAllCoupons(){
-    return this.http.get(this.url);
+  getAllCoupons() : Observable<Coupon[]>{
+    return this.http.get<Coupon[]>(`${this.baseUrl}/allCoupons`);
+  }
+
+ createCoupon(coupon: Coupon) : Observable<Coupon>{
+    return this.http.post<Coupon>(`${this.baseUrl}/create`, coupon);
   }
 
 }

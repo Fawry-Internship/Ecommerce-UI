@@ -12,9 +12,10 @@ import {AuthGuardLogin} from "./guards/auth-guard-login";
 const routes: Routes = [
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: 'welcome', component: WelcomeComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'login', component: LoginComponent, canActivate: [AuthGuardLogin] },
   {
-    path: 'admin',
+    path: 'admin', component: DashboardComponent,
     canActivate: [AuthGuard], // Apply AuthGuard to the entire 'admin' path
     children: [
       { path: '', component: DashboardComponent }, // No need to apply AuthGuard here
