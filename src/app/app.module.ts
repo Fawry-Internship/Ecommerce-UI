@@ -8,13 +8,17 @@ import { WelcomeComponent } from './shared/components/welcome/welcome.component'
 import { HeaderComponent } from './shared/components/header/header.component';
 import { LoginComponent } from './shared/components/login/login.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {AllProductsComponent} from "./customer/components/all-products/all-products.component";
+import {ProductsDetailsComponent} from "./customer/components/all-products/products-details/products-details.component";
 
 @NgModule({
     declarations: [
         AppComponent,
         WelcomeComponent,
         HeaderComponent,
-        LoginComponent
+        LoginComponent,
+        AllProductsComponent,
+        ProductsDetailsComponent
     ],
     providers: [],
     bootstrap: [AppComponent],
