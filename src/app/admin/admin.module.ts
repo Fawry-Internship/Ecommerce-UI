@@ -15,7 +15,10 @@ import { AddNewComponent } from './components/shared/add-new/add-new.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ViewUsersComponent } from './components/users/view-users/view-users.component';
 import {UsersComponent} from "./components/users/users.component";
-
+import {AddUserComponent} from "./components/users/add-user/add-user.component";
+import { ProductsComponent } from './components/products/products.component';
+import { ViewProductComponent } from './components/products/view-product/view-product.component';
+import { AddProductComponent } from './components/products/add-product/add-product.component';
 
 
 @NgModule({
@@ -29,7 +32,11 @@ import {UsersComponent} from "./components/users/users.component";
     ViewTableComponent,
     AddNewComponent,
     ViewUsersComponent,
-    UsersComponent
+    UsersComponent,
+    AddUserComponent,
+    ProductsComponent,
+    ViewProductComponent,
+    AddProductComponent
   ],
   imports: [
     CommonModule,

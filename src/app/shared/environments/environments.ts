@@ -11,9 +11,9 @@ export const logOut = () => {
 };
 
 export const usersHost = () => {
-  return 'http://localhost:9091/users';
+  return 'http://localhost:8086/users';
 };
 
 export const couponHost = () => {
-  return 'http://localhost:9090/coupon';
+  return 'http://localhost:8083/coupon';
 };

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CouponService } from '../../../services/coupon.service';
-import { Coupon } from 'src/app/models/coupon';
+import { Coupon } from 'src/app/shared/models/coupon';
 
 @Component({
   selector: 'app-view-coupon',

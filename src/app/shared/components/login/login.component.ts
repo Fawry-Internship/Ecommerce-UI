@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../../admin/services/auth.service";
 import {Router} from "@angular/router";
-import {AccountLogin} from "../../../models/account-login";
-import {saveToken} from "../../../environments/environments";
+import {AccountLogin} from "../../models/account-login";
+import {saveToken} from "../../environments/environments";
 
 @Component({
   selector: 'app-login',
@@ -26,7 +26,7 @@ export class LoginComponent {
         next: response => {
           saveToken(response.token);
           if(this.authService.IsValidToken()){
-            this.router.navigate(['home']);
+            this.router.navigate(['admin/']);
           }
           console.log(response);
         },

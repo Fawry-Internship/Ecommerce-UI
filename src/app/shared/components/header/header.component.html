@@ -1,4 +1,4 @@
-<nav *ngIf="!isAuthenticated()" class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
       <img src="../../../../assets/img.png" alt="Fawry" style="max-height: 30px; max-width: 100px;">
@@ -6,8 +6,8 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" routerLink="/products" routerLinkActive="active" ariaCurrentWhenActive="page">
             <i class="bi bi-shop"></i> Products
@@ -18,9 +18,21 @@
             <i class="bi bi-cart"></i> Cart
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a>
-        </li>
+        <ng-container *ngIf="!isAuthenticated(); else authenticatedNav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a>
+          </li>
+        </ng-container>
+        <ng-template #authenticatedNav>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/admin" routerLinkActive="active" ariaCurrentWhenActive="page">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link logout" (click)="logout()">
+              <i class="bi bi-box-arrow-right"></i> Logout
+            </a>
+          </li>
+        </ng-template>
       </ul>
     </div>
   </div>

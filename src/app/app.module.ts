@@ -4,10 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminModule } from "./admin/admin.module";
-import { WelcomeComponent } from './customer/components/welcome/welcome.component';
-import { HeaderComponent } from './customer/components/header/header.component';
-import { LoginComponent } from './customer/components/login/login.component';
-import { RegisterComponent } from './admin/components/users/register/register.component';
+import { WelcomeComponent } from './shared/components/welcome/welcome.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { LoginComponent } from './shared/components/login/login.component';
 import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
@@ -15,8 +14,7 @@ import {ReactiveFormsModule} from "@angular/forms";
         AppComponent,
         WelcomeComponent,
         HeaderComponent,
-        LoginComponent,
-        RegisterComponent
+        LoginComponent
     ],
     providers: [],
     bootstrap: [AppComponent],

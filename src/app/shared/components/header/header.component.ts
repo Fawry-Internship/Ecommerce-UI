@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
-import {getToken, logOut} from "../../../environments/environments";
+import {getToken, logOut} from "../../environments/environments";
 import {AuthService} from "../../../admin/services/auth.service";
 
 @Component({
@@ -20,5 +20,4 @@ export class HeaderComponent {
     logOut()
     this.router.navigate(['']);
   }
-
 }
