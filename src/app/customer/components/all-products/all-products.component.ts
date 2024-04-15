@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductService} from "../../../admin/services/product.service";
 import {Product} from "../../../shared/models/product";
+import {StoreService} from "../../services/store.service";
 
 
 @Component({
@@ -11,14 +12,14 @@ import {Product} from "../../../shared/models/product";
 export class AllProductsComponent implements OnInit {
   products: Product[] = [];
 
-  constructor(private productService: ProductService) { }
+  constructor(private storeService: StoreService) { }
 
   ngOnInit(): void {
     this.getProducts();
   }
 
   getProducts() {
-    this.productService.getAllProducts().subscribe((data: any) => {
+    this.storeService.getAllStocksProducts().subscribe((data: any) => {
       this.products = data;
       console.log(data);
     });

@@ -13,6 +13,7 @@ export class ViewProductComponent implements OnInit, OnDestroy {
 
   headerList = ["id", "code", "name", "description", "price", "categoryName", "brand", "imageUrl", "createdAt", "updatedAt"]
   products!: Product[];
+  filteredProducts!: Product[];
   private refreshSubscription!: Subscription;
 
   constructor(private productService: ProductService) { }
@@ -25,8 +26,10 @@ export class ViewProductComponent implements OnInit, OnDestroy {
       )
       .subscribe(data => {
         this.products = data;
+        this.filteredProducts = this.products; // Update filtered products
       });
   }
+
 
   ngOnDestroy(): void {
     if (this.refreshSubscription) {
@@ -37,6 +40,7 @@ export class ViewProductComponent implements OnInit, OnDestroy {
   getProducts(): void {
     this.productService.getAllProducts().subscribe(data => {
       this.products = data;
+      this.filteredProducts = this.products; // Initialize filtered products
     });
   }
 
@@ -49,6 +53,16 @@ export class ViewProductComponent implements OnInit, OnDestroy {
     this.productService.deleteProduct(id).subscribe(() => {
       console.log(`Product with ID ${id} deleted successfully.`);
       this.products = this.products.filter(p => p.id !== id);
+      this.filteredProducts = this.filteredProducts.filter(p => p.id !== id); // Update filtered products after deletion
     });
   }
+
+  searchProducts(event: any): void {
+    const query = event.target.value;
+    console.log('Search query:', query);
+    this.filteredProducts = this.products.filter(product =>
+      product.name.toLowerCase().includes(query.toLowerCase())
+    );
+  }
+
 }

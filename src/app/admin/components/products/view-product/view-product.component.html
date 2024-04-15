@@ -1,8 +1,11 @@
 <div class="container">
   <div class="my-2">
-    <app-add-coupon></app-add-coupon>
+    <input type="text" class="form-control mb-3" placeholder="Search Products" (input)="searchProducts($event)">
   </div>
   <div class="my-2">
-    <app-view-table [headList]="headerList" [rowsList]="products" [editable]="true" [deleteable]="true" (onEdit)="editProduct($event)" (onDelete)="deleteProduct($event)"></app-view-table>
+    <app-add-product></app-add-product>
+  </div>
+  <div class="my-2">
+    <app-view-table [headList]="headerList" [rowsList]="filteredProducts" [editable]="true" [deleteable]="true" (onEdit)="editProduct($event)" (onDelete)="deleteProduct($event)"></app-view-table>
   </div>
 </div>
