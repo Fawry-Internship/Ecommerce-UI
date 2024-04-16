@@ -17,3 +17,7 @@ export const usersHost = () => {
 export const couponHost = () => {
   return 'http://localhost:8083/coupon';
 };
+
+export const storeHost = ()=>{
+  return 'http://localhost:8082/store'
+}

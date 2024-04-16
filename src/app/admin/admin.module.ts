@@ -19,8 +19,8 @@ import {AddUserComponent} from "./components/users/add-user/add-user.component";
 import { ProductsComponent } from './components/products/products.component';
 import { ViewProductComponent } from './components/products/view-product/view-product.component';
 import { AddProductComponent } from './components/products/add-product/add-product.component';
-
-
+import { ViewStoreComponent } from './components/store/view-store/view-store.component';
+import { AddStoreComponent } from './components/store/add-store/add-store.component'; 
 @NgModule({
   declarations: [
     SidebarMenuComponent,
@@ -36,7 +36,9 @@ import { AddProductComponent } from './components/products/add-product/add-produ
     AddUserComponent,
     ProductsComponent,
     ViewProductComponent,
-    AddProductComponent
+    AddProductComponent,
+    ViewStoreComponent,
+    AddStoreComponent
   ],
   imports: [
     CommonModule,
@@ -50,7 +52,8 @@ import { AddProductComponent } from './components/products/add-product/add-produ
   ],
   exports: [
     DashboardComponent,
-    SidebarMenuComponent
+    SidebarMenuComponent,
+    ViewStoreComponent
   ]
 })
 export class AdminModule { }

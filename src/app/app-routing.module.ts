@@ -7,7 +7,8 @@ import { LoginComponent } from "./shared/components/login/login.component";
 import {DashboardComponent} from "./admin/components/dashboard/dashboard.component";
 import {AuthGuard} from "./shared/guards/auth-guard.service";
 import {AuthGuardLogin} from "./shared/guards/auth-guard-login";
-
+import { AddStoreComponent } from "./admin/components/store/add-store/add-store.component"; 
+import { ViewStoreComponent } from './admin/components/store/view-store/view-store.component';
 const routes: Routes = [
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: 'welcome', component: WelcomeComponent },
@@ -17,7 +18,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: 'coupon', component: ViewCouponComponent },
-      { path: 'users', component: ViewUsersComponent }
+      { path: 'users', component: ViewUsersComponent },
+      {path:  'store', component: ViewStoreComponent }
     ]
   },
   { path: '**', redirectTo: '/welcome' }

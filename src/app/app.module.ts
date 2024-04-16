@@ -22,7 +22,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     BrowserModule,
     AppRoutingModule,
     AdminModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+  
   ]
 })
 export class AppModule { }
