@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ProductService} from "../../../admin/services/product.service";
 import {Product} from "../../../shared/models/product";
 import {StoreService} from "../../services/store.service";
+import { CartService } from "../../cart/services/cart.service";
 
 
 @Component({
@@ -12,10 +13,14 @@ import {StoreService} from "../../services/store.service";
 export class AllProductsComponent implements OnInit {
   products: Product[] = [];
 
-  constructor(private storeService: StoreService) { }
+  constructor(private storeService: StoreService , private cartService: CartService) { }
 
   ngOnInit(): void {
     this.getProducts();
+  }
+
+  addToCart(item:any) {
+    this.cartService.addToCart(item);
   }
 
   getProducts() {
@@ -25,3 +30,8 @@ export class AllProductsComponent implements OnInit {
     });
   }
 }
+
+
+
+
+

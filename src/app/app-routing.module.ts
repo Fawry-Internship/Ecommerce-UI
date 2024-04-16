@@ -10,12 +10,17 @@ import {AuthGuardLogin} from "./shared/guards/auth-guard-login";
 import {ViewProductComponent} from "./admin/components/products/view-product/view-product.component";
 import {AllProductsComponent} from "./customer/components/all-products/all-products.component";
 import {ViewStockComponent} from "./admin/components/stock/view-stock/view-stock.component";
+import { CartComponent } from 'src/app/customer/cart/components/cart/cart.component';
+import { CheckoutComponent } from 'src/app/customer/checkout/components/checkout/checkout.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: 'welcome', component: WelcomeComponent },
   { path: 'login', component: LoginComponent, canActivate: [AuthGuardLogin] },
   { path: 'products', component: AllProductsComponent},
+  { path: 'cart', component: CartComponent },
+  { path: 'checkout', component: CheckoutComponent },
   {
     path: 'admin', component: DashboardComponent,
     canActivate: [AuthGuard],
@@ -35,3 +40,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

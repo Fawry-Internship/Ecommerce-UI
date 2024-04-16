@@ -10,6 +10,11 @@ import { LoginComponent } from './shared/components/login/login.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {AllProductsComponent} from "./customer/components/all-products/all-products.component";
 import {ProductsDetailsComponent} from "./customer/components/all-products/products-details/products-details.component";
+import { CartModule } from 'src/app/customer/cart/cart.module';
+import { CheckoutModule } from 'src/app/customer/checkout/checkout.module';
+
+
+
 
 @NgModule({
     declarations: [
@@ -18,7 +23,7 @@ import {ProductsDetailsComponent} from "./customer/components/all-products/produ
         HeaderComponent,
         LoginComponent,
         AllProductsComponent,
-        ProductsDetailsComponent
+        ProductsDetailsComponent,
     ],
     providers: [],
     bootstrap: [AppComponent],
@@ -26,7 +31,11 @@ import {ProductsDetailsComponent} from "./customer/components/all-products/produ
     BrowserModule,
     AppRoutingModule,
     AdminModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CartModule,
+    CheckoutModule
   ]
 })
 export class AppModule { }
+
+
