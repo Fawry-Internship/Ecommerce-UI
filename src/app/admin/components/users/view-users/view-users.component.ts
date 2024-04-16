@@ -9,10 +9,9 @@ import {Router} from "@angular/router";
   styleUrls: ['./view-users.component.css']
 })
 export class ViewUsersComponent implements OnInit, OnDestroy{
-  user : any[] = ["1", "abdo@gmail.com", "true"];
   users!: any[];
   subscription!: Subscription;
-  headerList = ["id", "email", "enable"];
+  headerList = ["id", "email", "Active"];
   searchTerm: string = '';
 
   constructor(private usersService:UsersService, private router: Router){
@@ -80,9 +79,5 @@ export class ViewUsersComponent implements OnInit, OnDestroy{
         console.error('Error fetching users:', error);
       }
     );
-  }
-
-  addNewAdmin() {
-    this.router.navigate(['/register']);
   }
 }

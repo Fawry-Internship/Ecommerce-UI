@@ -1,0 +1,34 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="code">Product Code</label>
+    <input type="text" class="form-control" id="code" formControlName="code" placeholder="Product Code" readonly>
+  </div>
+  <div class="form-group">
+    <label for="name">Product Name</label>
+    <input type="text" class="form-control" id="name" formControlName="name" placeholder="Product Name">
+  </div>
+  <div class="form-group">
+    <label for="description">Product Description</label>
+    <textarea class="form-control" id="description" formControlName="description" placeholder="Product Description"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input type="number" class="form-control" id="price" formControlName="price" placeholder="Price">
+  </div>
+  <div class="form-group">
+    <label for="categoryName">Category Name</label>
+    <input type="text" class="form-control" id="categoryName" formControlName="categoryName" placeholder="Category Name">
+  </div>
+  <div class="form-group">
+    <label for="brand">Brand</label>
+    <input type="text" class="form-control" id="brand" formControlName="brand" placeholder="Brand">
+  </div>
+  <div class="form-group">
+    <label for="imageUrl">Image URL</label>
+    <input type="text" class="form-control" id="imageUrl" formControlName="imageUrl" placeholder="Image URL">
+  </div>
+  <!-- Active field is hidden, default set to true -->
+  <input type="hidden" formControlName="active" value="true">
+
+  <button type="submit" class="btn btn-primary">Update</button>
+</form>
