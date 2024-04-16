@@ -20,7 +20,7 @@ export class AddStoreComponent implements OnInit {
 
   createForm(): void {
     this.storeForm = this.fb.group({
-      name: ['', Validators.required],   
+      name: ['', Validators.required],
       address: ['', Validators.required],
     });
   }
@@ -30,6 +30,7 @@ export class AddStoreComponent implements OnInit {
       this.storeService.createStore(this.storeForm.value).subscribe(
         createdStore => {
           console.log('New store created:', createdStore);
+          this.storeForm.reset()
         },
         error => {
           console.error('Error creating store:', error);

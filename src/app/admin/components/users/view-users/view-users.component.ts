@@ -57,14 +57,21 @@ export class ViewUsersComponent implements OnInit, OnDestroy{
     );
   }
 
+  onSearch(): void {
+    console.log('Search Term:', this.searchTerm);
+  }
+
+
   get filteredUsers() {
-    if (!this.users) return [];
+    if (!this.users || !this.searchTerm.trim()) return this.users;
     return this.users.filter(user =>
       this.headerList.some(header =>
-        user[header].toString().toLowerCase().includes(this.searchTerm.toLowerCase())
+        user[header] && user[header].toString().toLowerCase().includes(this.searchTerm.trim().toLowerCase())
       )
     );
   }
+
+
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }

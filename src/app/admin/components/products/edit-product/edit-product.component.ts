@@ -44,7 +44,7 @@ export class EditProductComponent implements OnInit {
       categoryName: [this.product ? this.product.categoryName : '', Validators.required],
       brand: [this.product ? this.product.brand : '', Validators.required],
       imageUrl: [this.product ? this.product.imageUrl : '', Validators.required],
-      active: [this.product ? this.product.active : true] // Set based on product's active status
+      active: [this.product ? this.product.active : true]
     });
   }
 

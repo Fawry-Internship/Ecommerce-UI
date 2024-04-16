@@ -1,4 +1,5 @@
 <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <input type="hidden" formControlName="hiddenField">
   <div class="form-group">
     <label for="code">Product Code</label>
     <input type="text" class="form-control" id="code" formControlName="code" placeholder="Product Code" readonly>

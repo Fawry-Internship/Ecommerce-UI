@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from '../../../services/store.service';
 import { Store } from 'src/app/shared/models/store';
-import { interval, Subscription } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -10,29 +9,20 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./view-store.component.css']
 })
 export class ViewStoreComponent implements OnInit {
-  stores!: Store[];
-  subscription!: Subscription;
+  stores: Store[] = [];
   headerList = ['ID', 'Name', 'Address'];
   searchTerm: string = '';
-  storeForm !: FormGroup;
-  showEditForm: boolean = false;
+  storeForm!: FormGroup;
   editingStoreId: number = -1;
 
   constructor(private storeService: StoreService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.getAllStores();
-    this.subscription = interval(30000).subscribe(() => {
-      this.getAllStores();
-    });
     this.storeForm = this.fb.group({
       name: ['', Validators.required],
       address: ['', Validators.required]
     });
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
   }
 
   getAllStores(): void {
@@ -51,7 +41,6 @@ export class ViewStoreComponent implements OnInit {
     const selectedStore = this.stores.find(store => store.id === storeId);
     if (selectedStore) {
       this.storeForm.patchValue(selectedStore);
-      this.showEditForm = true;
       this.editingStoreId = storeId;
     }
   }
@@ -62,7 +51,6 @@ export class ViewStoreComponent implements OnInit {
         updatedStore => {
           console.log('Store updated:', updatedStore);
           this.getAllStores();
-          this.showEditForm = false;
           this.resetForm();
         },
         error => {
@@ -78,9 +66,21 @@ export class ViewStoreComponent implements OnInit {
     // Logic to delete store
   }
 
+  applyFilter(): void {
+
+  }
+
   resetForm(): void {
     this.storeForm.reset();
-    this.showEditForm = false;
     this.editingStoreId = -1;
+  }
+
+  get filteredStores() {
+    if (!this.stores || !this.searchTerm.trim()) return this.stores;
+    return this.stores.filter(store =>
+      this.headerList.some(header =>
+        (store as any)[header.toLowerCase()].toString().toLowerCase().includes(this.searchTerm.trim().toLowerCase())
+      )
+    );
   }
 }

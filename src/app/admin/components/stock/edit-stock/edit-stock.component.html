@@ -1,5 +1,5 @@
-<!-- edit-stock.component.html -->
 <form [formGroup]="stockForm" (ngSubmit)="onSubmit()">
+  <input type="hidden" formControlName="hiddenField">
   <div class="form-group">
     <label for="quantity">Quantity</label>
     <input type="number" class="form-control" id="quantity" formControlName="quantity" placeholder="Quantity">

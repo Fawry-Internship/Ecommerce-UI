@@ -15,6 +15,7 @@ import {EditStockComponent} from "./admin/components/stock/edit-stock/edit-stock
 import {ViewStockComponent} from "./admin/components/stock/view-stock/view-stock.component";
 import { CartComponent } from 'src/app/customer/cart/components/cart/cart.component';
 import { CheckoutComponent } from 'src/app/customer/checkout/components/checkout/checkout.component';
+import {EditCouponComponent} from "./admin/components/coupon/edit-coupon/edit-coupon.component";
 
 
 const routes: Routes = [
@@ -29,6 +30,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: 'coupon', component: ViewCouponComponent },
+      { path: 'coupon/edit', component: EditCouponComponent },
+      { path: 'coupon/edit/:id', component: EditCouponComponent },
       { path: 'users', component: ViewUsersComponent },
       {path:  'store', component: ViewStoreComponent },
       {path: 'products', component: ViewProductComponent},

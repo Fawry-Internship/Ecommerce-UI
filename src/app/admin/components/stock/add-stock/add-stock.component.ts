@@ -33,6 +33,7 @@ export class AddStockComponent implements OnInit {
         (createdStock: Stock) => {
           this.router.navigate(['admin/stock']);
           console.log('New stock added:', createdStock);
+          this.stockForm.reset();
         },
         (error) => {
           console.error('Error adding stock:', error);

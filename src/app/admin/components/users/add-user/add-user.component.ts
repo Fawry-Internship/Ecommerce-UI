@@ -25,6 +25,7 @@ export class AddUserComponent {
         next: response => {
           this.router.navigate(['admin/users']);
           console.log(response);
+          this.signupForm.reset();
         },
         error: error => {
           console.error('There was an error!', error);

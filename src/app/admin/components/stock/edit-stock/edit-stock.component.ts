@@ -25,7 +25,7 @@ export class EditStockComponent implements OnInit {
       this.stockId = +idParam;
       this.stockService.getStockById(this.stockId).subscribe(
         (stock: Stock) => {
-          console.log(stock)
+          console.log(stock);
           this.initStockForm(stock);
         },
         (error: any) => {
@@ -39,9 +39,9 @@ export class EditStockComponent implements OnInit {
 
   initStockForm(stock: Stock): void {
     this.stockForm = this.fb.group({
-      quantity: [stock.quantity, Validators.required],
-      productCode: [stock.productCode, Validators.required],
-      storeId: [stock.storeId, Validators.required]
+      quantity: [stock.quantity !== undefined ? stock.quantity : null, Validators.required],
+      productCode: { value: stock.productCode, disabled: true },
+      storeId:{ value: stock.storeId, disabled: true },
     });
   }
 

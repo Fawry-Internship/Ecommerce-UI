@@ -1,8 +1,12 @@
 <div class="container">
   <div class="my-2">
+    <!-- Add a search input field -->
+    <input type="text" class="form-control mb-2" placeholder="Search Coupons" [(ngModel)]="searchTerm" (ngModelChange)="applyFilter()">  </div>
+  <div class="my-2">
     <app-add-coupon></app-add-coupon>
   </div>
   <div class="my-2">
-    <app-view-table [headList]="headerList" [rowsList]="coupons" [editable]="true" [deleteable]="true" (onEdit)="editCoupon($event)" (onDelete)="deleteCoupon($event)"></app-view-table>
+    <!-- Display the coupon table -->
+    <app-view-table [headList]="headerList" [rowsList]="filteredCoupons" [editable]="true" [deleteable]="true" (onEdit)="editCoupon($event)" (onDelete)="deleteCoupon($event)"></app-view-table>
   </div>
 </div>

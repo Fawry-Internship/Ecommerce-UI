@@ -27,15 +27,19 @@ export class AddCouponComponent implements OnInit{
       validTo: ['', Validators.required],
       usageLimit: ['', Validators.required],
     });
-    this.couponService.createCoupon(this.couponForm.value).subscribe(createdCoupon => {
-      console.log('New coupon created:', createdCoupon);
-      // Handle response as needed
-    });
   }
 
   onSubmit() {
     if (this.couponForm.valid) {
-      console.log(this.couponForm.value);
+      this.couponService.createCoupon(this.couponForm.value).subscribe(
+        (createdCoupon: any) => {
+          console.log('New coupon created:', createdCoupon);
+          this.couponForm.reset();
+        },
+        (error: any) => {
+          console.error('Error creating coupon:', error);
+        }
+      );
     }
   }
 

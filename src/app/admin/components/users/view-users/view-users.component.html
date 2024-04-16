@@ -3,7 +3,7 @@
     <app-add-user></app-add-user>
   </div>
   <div class="my-2">
-    <input type="text" class="form-control mb-2" placeholder="Search Users" [(ngModel)]="searchTerm">
+    <input type="text" class="form-control mb-2" placeholder="Search Users" [(ngModel)]="searchTerm" (ngModelChange)="onSearch()">
     <table class="table table-striped">
       <thead class="thead-dark">
       <tr>
