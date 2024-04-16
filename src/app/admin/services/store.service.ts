@@ -10,7 +10,7 @@ import { Store } from 'src/app/shared/models/store';
 export class StoreService {
 
 
-  private baseUrl = storeHost();
+  private baseUrl = storeHost()+"/store";
 
   constructor(private http:HttpClient) { }
 

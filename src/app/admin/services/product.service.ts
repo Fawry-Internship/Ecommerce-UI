@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { getToken, productHost } from "../../shared/environments/environments";
+import {getToken, productHost} from "../../shared/environments/environments";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { catchError } from "rxjs/operators";
 import {Observable, of, throwError} from "rxjs";

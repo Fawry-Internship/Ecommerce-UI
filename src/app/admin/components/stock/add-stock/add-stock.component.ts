@@ -22,7 +22,7 @@ export class AddStockComponent implements OnInit {
     this.stockForm = this.fb.group({
       quantity: ['', Validators.required],
       productCode: ['', Validators.required],
-      storeId: ['', Validators.required] // Assuming you'll retrieve this from the logged-in user or some other source
+      storeId: ['', Validators.required]
     });
   }
 

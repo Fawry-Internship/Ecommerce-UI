@@ -7,17 +7,13 @@ import { LoginComponent } from "./shared/components/login/login.component";
 import {DashboardComponent} from "./admin/components/dashboard/dashboard.component";
 import {AuthGuard} from "./shared/guards/auth-guard.service";
 import {AuthGuardLogin} from "./shared/guards/auth-guard-login";
-<<<<<<< HEAD
-import { AddStoreComponent } from "./admin/components/store/add-store/add-store.component"; 
-import { ViewStoreComponent } from './admin/components/store/view-store/view-store.component';
-=======
-import {ViewProductComponent} from "./admin/components/products/view-product/view-product.component";
 import {AllProductsComponent} from "./customer/components/all-products/all-products.component";
-import {ViewStockComponent} from "./admin/components/stock/view-stock/view-stock.component";
+import {ViewStoreComponent} from "./admin/components/store/view-store/view-store.component";
+import {ViewProductComponent} from "./admin/components/products/view-product/view-product.component";
 import {EditProductComponent} from "./admin/components/products/edit-product/edit-product.component";
 import {EditStockComponent} from "./admin/components/stock/edit-stock/edit-stock.component";
+import {ViewStockComponent} from "./admin/components/stock/view-stock/view-stock.component";
 
->>>>>>> ee34d30090fd4c604e53983dbabbf41defe26c6d
 const routes: Routes = [
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: 'welcome', component: WelcomeComponent },
@@ -29,16 +25,13 @@ const routes: Routes = [
     children: [
       { path: 'coupon', component: ViewCouponComponent },
       { path: 'users', component: ViewUsersComponent },
-<<<<<<< HEAD
-      {path:  'store', component: ViewStoreComponent }
-=======
+      {path:  'store', component: ViewStoreComponent },
       {path: 'products', component: ViewProductComponent},
       {path: 'products/edit', component: EditProductComponent},
       {path: 'products/edit/:id', component: EditProductComponent},
       {path: 'stock/edit', component: EditStockComponent},
       {path: 'stock/edit/:id', component: EditStockComponent,},
       {path: 'stock', component: ViewStockComponent}
->>>>>>> ee34d30090fd4c604e53983dbabbf41defe26c6d
     ]
   },
   { path: '**', redirectTo: '/welcome' }
