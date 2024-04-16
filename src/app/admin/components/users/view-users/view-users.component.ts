@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 export class ViewUsersComponent implements OnInit, OnDestroy{
   users!: any[];
   subscription!: Subscription;
-  headerList = ["id", "email", "enable"];
+  headerList = ["id", "email", "Active"];
   searchTerm: string = '';
 
   constructor(private usersService:UsersService, private router: Router){

@@ -3,6 +3,7 @@ import { Product } from "../../../../shared/models/product";
 import { ProductService } from "../../../services/product.service";
 import { Subscription, interval } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-view-product',
@@ -16,7 +17,7 @@ export class ViewProductComponent implements OnInit, OnDestroy {
   filteredProducts!: Product[];
   private refreshSubscription!: Subscription;
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private router: Router) { }
 
   ngOnInit(): void {
     this.getProducts();
@@ -40,13 +41,18 @@ export class ViewProductComponent implements OnInit, OnDestroy {
   getProducts(): void {
     this.productService.getAllProducts().subscribe(data => {
       this.products = data;
-      this.filteredProducts = this.products; // Initialize filtered products
+      this.filteredProducts = this.products;
     });
   }
 
   editProduct(event: any): void {
-    console.log(event);
+    const productId = event.id;
+    const product = this.products.find(p => p.id === productId);
+    if (product) {
+      this.router.navigate(['/admin/products/edit', product.id]);
+    }
   }
+
 
   deleteProduct(event: any): void {
     const id = event.id;

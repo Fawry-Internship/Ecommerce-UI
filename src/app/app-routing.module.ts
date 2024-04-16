@@ -10,6 +10,8 @@ import {AuthGuardLogin} from "./shared/guards/auth-guard-login";
 import {ViewProductComponent} from "./admin/components/products/view-product/view-product.component";
 import {AllProductsComponent} from "./customer/components/all-products/all-products.component";
 import {ViewStockComponent} from "./admin/components/stock/view-stock/view-stock.component";
+import {EditProductComponent} from "./admin/components/products/edit-product/edit-product.component";
+import {EditStockComponent} from "./admin/components/stock/edit-stock/edit-stock.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
@@ -23,6 +25,10 @@ const routes: Routes = [
       { path: 'coupon', component: ViewCouponComponent },
       { path: 'users', component: ViewUsersComponent },
       {path: 'products', component: ViewProductComponent},
+      {path: 'products/edit', component: EditProductComponent},
+      {path: 'products/edit/:id', component: EditProductComponent},
+      {path: 'stock/edit', component: EditStockComponent},
+      {path: 'stock/edit/:id', component: EditStockComponent,},
       {path: 'stock', component: ViewStockComponent}
     ]
   },
