@@ -25,3 +25,4 @@ export const productHost = () => {
 export const storeHost = () => {
   return 'http://localhost:8082';
 };
+

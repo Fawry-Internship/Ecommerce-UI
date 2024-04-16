@@ -35,4 +35,16 @@ export class StockService {
       })
     );
   }
+
+  deleteStock(stockId: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/delete/${stockId}`);
+  }
+
+  getStockById(stockId: number): Observable<Stock> {
+    return this.http.get<Stock>(`${this.baseUrl}/${stockId}`).pipe(
+      tap((response: Stock) => {
+        console.log(`Get Stock by ID ${stockId} Response:`, response);
+      })
+    );
+  }
 }

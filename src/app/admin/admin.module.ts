@@ -19,12 +19,13 @@ import {AddUserComponent} from "./components/users/add-user/add-user.component";
 import { ProductsComponent } from './components/products/products.component';
 import { ViewProductComponent } from './components/products/view-product/view-product.component';
 import { AddProductComponent } from './components/products/add-product/add-product.component';
-import { EditProductComponent } from './components/products/edit-product/edit-product.component';
-import { StockComponent } from './components/stock/stock.component';
-import { ViewStockComponent } from './components/stock/view-stock/view-stock.component';
-import { EditStockComponent } from './components/stock/edit-stock/edit-stock.component';
-import { AddStockComponent } from './components/stock/add-stock/add-stock.component';
-
+import {AddStockComponent} from "./components/stock/add-stock/add-stock.component";
+import {EditStockComponent} from "./components/stock/edit-stock/edit-stock.component";
+import {ViewStockComponent} from "./components/stock/view-stock/view-stock.component";
+import {StockComponent} from "./components/stock/stock.component";
+import {EditProductComponent} from "./components/products/edit-product/edit-product.component";
+import {AddStoreComponent} from "./components/store/add-store/add-store.component";
+import {ViewStoreComponent} from "./components/store/view-store/view-store.component";
 
 @NgModule({
   declarations: [
@@ -42,6 +43,8 @@ import { AddStockComponent } from './components/stock/add-stock/add-stock.compon
     ProductsComponent,
     ViewProductComponent,
     AddProductComponent,
+    ViewStoreComponent,
+    AddStoreComponent,
     EditProductComponent,
     StockComponent,
     ViewStockComponent,
@@ -60,7 +63,8 @@ import { AddStockComponent } from './components/stock/add-stock/add-stock.compon
   ],
   exports: [
     DashboardComponent,
-    SidebarMenuComponent
+    SidebarMenuComponent,
+    ViewStoreComponent
   ]
 })
 export class AdminModule { }
