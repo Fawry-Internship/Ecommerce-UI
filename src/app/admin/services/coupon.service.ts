@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { couponHost } from 'src/app/shared/environments/environments';
 import { Observable } from 'rxjs';
 import { Coupon } from 'src/app/shared/models/coupon';
+import { ConsumptionHistory } from 'src/app/shared/models/couponConsumption';
+
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +35,10 @@ export class CouponService {
 
   deleteCoupon(couponId: number): Observable<any> {
     return this.http.delete<any>(`${this.baseUrl}/${couponId}`);
+  }
+
+  getCouponConsumptionHistories(couponId: number):Observable<ConsumptionHistory[]>{
+    return this.http.get<ConsumptionHistory[]>(`${this.baseUrl}/consumption-history/${couponId}`);
   }
 
 }

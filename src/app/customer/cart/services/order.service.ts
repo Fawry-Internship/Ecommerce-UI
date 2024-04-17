@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {Order} from "../../../shared/models/order";
+// import {Order} from "../../../shared/models/order";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
 
-  createOrder(order: Order): Observable<string> {
+  createOrder(order: any): Observable<string> {
     return this.http.post<string>(`${this.baseUrl}/create`, order);
   }
 }

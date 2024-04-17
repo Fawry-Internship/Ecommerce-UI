@@ -7,6 +7,6 @@
   </div>
   <div class="my-2">
     <!-- Display the coupon table -->
-    <app-view-table [headList]="headerList" [rowsList]="filteredCoupons" [editable]="true" [deleteable]="true" (onEdit)="editCoupon($event)" (onDelete)="deleteCoupon($event)"></app-view-table>
+    <app-view-table [headList]="headerList" [rowsList]="filteredCoupons" [editable]="true" [deleteable]="true" [consumable]="true" (onEdit)="editCoupon($event)" (onDelete)="deleteCoupon($event)" (onConsum)="getCouponConsumptionHistories($event)"></app-view-table>
   </div>
 </div>
