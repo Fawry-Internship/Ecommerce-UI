@@ -1,0 +1,31 @@
+<form [formGroup]="couponForm" (ngSubmit)="onSubmit()">
+  <input type="hidden" formControlName="hiddenField">
+  <div class="form-group">
+    <label for="code">Coupon Code</label>
+    <input type="text" class="form-control" id="code" formControlName="code" placeholder="Coupon Code">
+  </div>
+  <div class="form-group">
+    <label for="discountType">Discount Type</label>
+    <select class="form-control" id="discountType" formControlName="discountType">
+      <option value="" disabled selected>Select Discount Type</option>
+      <option *ngFor="let type of discountType" [value]="type">{{ type }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="discountValue">Discount Value</label>
+    <input type="number" class="form-control" id="discountValue" formControlName="discountValue" placeholder="Discount Value">
+  </div>
+  <div class="form-group">
+    <label for="validFrom">Valid From</label>
+    <input type="date" class="form-control" id="validFrom" formControlName="validFrom" placeholder="Valid From">
+  </div>
+  <div class="form-group">
+    <label for="validTo">Valid To</label>
+    <input type="date" class="form-control" id="validTo" formControlName="validTo" placeholder="Valid To">
+  </div>
+  <div class="form-group">
+    <label for="usageLimit">Usage Limit</label>
+    <input type="number" class="form-control" id="usageLimit" formControlName="usageLimit" placeholder="Usage Limit">
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!couponForm.valid">Update</button>
+</form>
