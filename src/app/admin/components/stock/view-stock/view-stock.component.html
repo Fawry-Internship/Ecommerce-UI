@@ -6,6 +6,6 @@
     <app-add-stock></app-add-stock>
   </div>
   <div class="my-2">
-    <app-view-table [headList]="headerList" [rowsList]="filteredStocks" [editable]="true" [deleteable]="true" (onEdit)="editStock($event)" (onDelete)="deleteStock($event)"></app-view-table>
+    <app-view-table [headList]="headerList" [rowsList]="filteredStocks" [editable]="true" [deleteable]="true" [consumable]="true" (onEdit)="editStock($event)" (onDelete)="deleteStock($event)" (onConsum)="getStockConsumptionHistories($event)"></app-view-table>
   </div>
 </div>

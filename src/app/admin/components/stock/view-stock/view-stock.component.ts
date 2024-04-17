@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Stock } from "../../../../shared/models/stock";
 import { interval, Subscription } from "rxjs";
 import { switchMap } from "rxjs/operators";
 import { StockService } from "../../../services/stock.service";
 import {Router} from "@angular/router";
+import { Stock } from 'src/app/shared/models/stock';
 
 @Component({
   selector: 'app-view-stock',
@@ -11,6 +11,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./view-stock.component.css']
 })
 export class ViewStockComponent implements OnInit, OnDestroy {
+
   headerList: string[] = ["id", "quantity", "productCode", "storeId", "createdAt", "updatedAt"];
   stocks!: Stock[];
   filteredStocks!: Stock[];
@@ -63,5 +64,10 @@ export class ViewStockComponent implements OnInit, OnDestroy {
     this.filteredStocks = this.stocks.filter(stock =>
       stock.id.toString().includes(query.toLowerCase())
     );
+  }
+
+  getStockConsumptionHistories(event: any) {
+    const stockId = event.id;
+    this.router.navigate(['/admin/stock/consumption-history', stockId]);
   }
 }

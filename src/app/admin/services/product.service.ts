@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import {getToken, productHost} from "../../shared/environments/environments";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { catchError } from "rxjs/operators";
 import {Observable, of, throwError} from "rxjs";
-import { Product } from "../../shared/models/product";
+import { Product } from 'src/app/shared/models/product';
+import { getToken, productHost } from 'src/app/shared/environments/environments';
 
 @Injectable({
   providedIn: 'root'

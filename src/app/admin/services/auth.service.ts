@@ -1,9 +1,9 @@
 import {Injectable} from "@angular/core";
-import {getToken, usersHost} from "../../shared/environments/environments";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {catchError, map, Observable, of} from "rxjs";
-import {AccountLogin} from "../../shared/models/account-login";
-import {AccountRegister} from "../../shared/models/account-register";
+import { getToken, usersHost } from "src/app/shared/environments/environments";
+import { AccountLogin } from "src/app/shared/models/account-login";
+import { AccountRegister } from "src/app/shared/models/account-register";
 
 @Injectable({
   providedIn: 'root'

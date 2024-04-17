@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Stock } from "../../shared/models/stock";
 import {Observable, tap} from "rxjs";
 import { HttpClient } from "@angular/common/http";
+import { Stock } from 'src/app/shared/models/stock';
+import { StockConsumption } from 'src/app/shared/models/stockConsumption';
 
 @Injectable({
   providedIn: 'root'
@@ -46,5 +47,9 @@ export class StockService {
         console.log(`Get Stock by ID ${stockId} Response:`, response);
       })
     );
+  }
+
+  getStockConsumptionHistories(stockId: number):Observable<any>{
+    return this.http.get<[StockConsumption]>(`${this.baseUrl}/consumption-history/${stockId}`);
   }
 }

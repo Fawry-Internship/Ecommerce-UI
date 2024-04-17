@@ -29,6 +29,7 @@ import {ViewStoreComponent} from "./components/store/view-store/view-store.compo
 import { TypeofPipePipe } from '../shared/pipes/typeof-pipe.pipe';
 import { EditCouponComponent } from './components/coupon/edit-coupon/edit-coupon.component';
 import { EditStoreComponent } from './components/store/edit-store/edit-store.component';
+import { ViewStockConsumptionComponent } from './components/stock/view-stock-consumption/view-stock-consumption.component';
 @NgModule({
   declarations: [
     SidebarMenuComponent,
@@ -53,8 +54,9 @@ import { EditStoreComponent } from './components/store/edit-store/edit-store.com
     EditStockComponent,
     AddStockComponent,
     EditCouponComponent,
-    EditStoreComponent
-
+    EditStoreComponent,
+    TypeofPipePipe,
+    ViewStockConsumptionComponent
   ],
   imports: [
     CommonModule,
