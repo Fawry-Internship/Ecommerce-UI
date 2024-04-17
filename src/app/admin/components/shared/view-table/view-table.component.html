@@ -3,6 +3,7 @@
     <tr>
       <th *ngFor="let head of headList">{{ head }}</th>
       <th *ngIf="active">Active</th>
+      <th *ngIf="consumable">View Consumption</th>
       <th *ngIf="editable">EDIT</th>
       <th *ngIf="deleteable">DELETE</th>
     </tr>
@@ -19,6 +20,9 @@
       </td>
       <td *ngIf="active">
         <button class="col-auto btn btn-success" (click)="isActive(row)">Active</button>
+      </td>
+      <td *ngIf="consumable">
+        <button class="col-auto btn btn-success" (click)="viewConsumption(row)">Consumption History</button>
       </td>
       <td *ngIf="editable">
         <button class="col-auto btn btn-success" (click)="editRow(row)">Edit</button>

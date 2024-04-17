@@ -26,6 +26,7 @@ import {StockComponent} from "./components/stock/stock.component";
 import {EditProductComponent} from "./components/products/edit-product/edit-product.component";
 import {AddStoreComponent} from "./components/store/add-store/add-store.component";
 import {ViewStoreComponent} from "./components/store/view-store/view-store.component";
+import { TypeofPipePipe } from '../shared/pipes/typeof-pipe.pipe';
 import { EditCouponComponent } from './components/coupon/edit-coupon/edit-coupon.component';
 
 @NgModule({
@@ -51,7 +52,8 @@ import { EditCouponComponent } from './components/coupon/edit-coupon/edit-coupon
     ViewStockComponent,
     EditStockComponent,
     AddStockComponent,
-    EditCouponComponent
+    EditCouponComponent,
+    TypeofPipePipe
   ],
   imports: [
     CommonModule,

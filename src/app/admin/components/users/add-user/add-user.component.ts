@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../../services/auth.service";
 import {Router} from "@angular/router";
-import {AccountRegister} from "../../../../shared/models/account-register";
+import { AccountRegister } from 'src/app/shared/models/account-register';
 
 @Component({
   selector: 'app-add-user',

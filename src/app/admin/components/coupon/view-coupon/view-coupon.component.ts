@@ -53,4 +53,9 @@ export class ViewCouponComponent implements OnInit {
       coupon.code.toLowerCase().includes(searchTermLowerCase)
     );
   }
+
+  getCouponConsumptionHistories(event:any){
+    const couponId = event.id;
+    this.router.navigate(['/admin/coupon/consumption-history', couponId]);
+  }
 }

@@ -15,6 +15,7 @@ import {EditStockComponent} from "./admin/components/stock/edit-stock/edit-stock
 import {ViewStockComponent} from "./admin/components/stock/view-stock/view-stock.component";
 import { CartComponent } from 'src/app/customer/cart/components/cart/cart.component';
 import { CheckoutComponent } from 'src/app/customer/checkout/components/checkout/checkout.component';
+import { ViewCouponConsumptionComponent } from './admin/components/coupon/view-coupon-consumption/view-coupon-consumption.component';
 import {EditCouponComponent} from "./admin/components/coupon/edit-coupon/edit-coupon.component";
 
 
@@ -32,6 +33,7 @@ const routes: Routes = [
       { path: 'coupon', component: ViewCouponComponent },
       { path: 'coupon/edit', component: EditCouponComponent },
       { path: 'coupon/edit/:id', component: EditCouponComponent },
+      { path:'coupon/consumption-history/:couponId', component: ViewCouponConsumptionComponent},
       { path: 'users', component: ViewUsersComponent },
       {path:  'store', component: ViewStoreComponent },
       {path: 'products', component: ViewProductComponent},
