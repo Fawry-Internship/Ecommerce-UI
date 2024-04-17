@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from 'src/app/admin/services/store.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -31,6 +32,7 @@ export class AddStoreComponent implements OnInit {
         createdStore => {
           console.log('New store created:', createdStore);
           this.storeForm.reset()
+          window.location.reload();
         },
         error => {
           console.error('Error creating store:', error);

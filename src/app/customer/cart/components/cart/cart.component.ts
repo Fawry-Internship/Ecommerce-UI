@@ -24,5 +24,6 @@ export class CartComponent {
   }
   checkout(item: any) {
     this.router.navigate(['/checkout'], { state: { item } });
+    this.cartService.clearCart();
   }
 }

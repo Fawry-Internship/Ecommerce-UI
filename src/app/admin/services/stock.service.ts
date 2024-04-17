@@ -50,6 +50,6 @@ export class StockService {
   }
 
   getStockConsumptionHistories(stockId: number):Observable<any>{
-    return this.http.get<[StockConsumption]>(`${this.baseUrl}/consumption-history/${stockId}`);
+    return this.http.get<StockConsumption[]>(`${this.baseUrl}/consumption-history/${stockId}`);
   }
 }

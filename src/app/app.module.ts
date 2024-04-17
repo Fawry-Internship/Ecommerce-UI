@@ -12,6 +12,7 @@ import {AllProductsComponent} from "./customer/components/all-products/all-produ
 import {ProductsDetailsComponent} from "./customer/components/all-products/products-details/products-details.component";
 import { CartModule } from 'src/app/customer/cart/cart.module';
 import { CheckoutModule } from 'src/app/customer/checkout/checkout.module';
+import { ThanksComponent } from './shared/components/thanks/thanks.component';
 
 
 
@@ -23,6 +24,7 @@ import { CheckoutModule } from 'src/app/customer/checkout/checkout.module';
         LoginComponent,
         AllProductsComponent,
         ProductsDetailsComponent,
+        ThanksComponent,
         
     ],
     providers: [],

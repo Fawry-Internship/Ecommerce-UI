@@ -61,6 +61,7 @@ export class ViewProductComponent implements OnInit, OnDestroy {
       this.products = this.products.filter(p => p.id !== id);
       this.filteredProducts = this.filteredProducts.filter(p => p.id !== id); // Update filtered products after deletion
     });
+    window.location.reload()
   }
 
   searchProducts(event: any): void {

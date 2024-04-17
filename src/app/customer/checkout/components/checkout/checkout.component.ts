@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {OrderService} from "../../../cart/services/order.service";
 
 @Component({
@@ -15,7 +15,8 @@ export class CheckoutComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private orderService: OrderService
+    private orderService: OrderService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -51,6 +52,7 @@ export class CheckoutComponent implements OnInit {
           console.error('Error creating order:', error);
         }
       );
+      this.router.navigate(['/thanks'])
     } else {
       // Form is invalid, handle accordingly
     }

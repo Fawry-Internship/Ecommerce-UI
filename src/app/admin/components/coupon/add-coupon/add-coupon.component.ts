@@ -35,6 +35,7 @@ export class AddCouponComponent implements OnInit{
         (createdCoupon: any) => {
           console.log('New coupon created:', createdCoupon);
           this.couponForm.reset();
+          window.location.reload();
         },
         (error: any) => {
           console.error('Error creating coupon:', error);

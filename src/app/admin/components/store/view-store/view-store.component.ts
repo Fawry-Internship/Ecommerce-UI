@@ -14,7 +14,7 @@ export class ViewStoreComponent implements OnInit {
   searchTerm: string = '';
   storeForm!: FormGroup;
   editingStoreId: number = -1;
-  
+
 
   constructor(private storeService: StoreService, private fb: FormBuilder,private router: Router) {}
 
@@ -42,14 +42,15 @@ export class ViewStoreComponent implements OnInit {
     this.router.navigate(['/admin/edit-store', storeId]);
   }
 
-  
- 
+
+
   deleteStore(storeId: number): void {
     this.storeService.deleteStoreById(storeId).subscribe(() => {
       console.log(`Store with ID ${storeId} deleted successfully.`);
       this.stores = this.stores.filter(store => store.id !== storeId);
       this.getAllStores();
     });
+    window.location.reload();
   }
 
 

@@ -18,6 +18,10 @@ import { CheckoutComponent } from 'src/app/customer/checkout/components/checkout
 import { ViewCouponConsumptionComponent } from './admin/components/coupon/view-coupon-consumption/view-coupon-consumption.component';
 import {EditCouponComponent} from "./admin/components/coupon/edit-coupon/edit-coupon.component";
 import { EditStoreComponent } from './admin/components/store/edit-store/edit-store.component';
+import {ThanksComponent} from "./shared/components/thanks/thanks.component";
+import {
+  ViewStockConsumptionComponent
+} from "./admin/components/stock/view-stock-consumption/view-stock-consumption.component";
 const routes: Routes = [
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: 'welcome', component: WelcomeComponent },
@@ -25,6 +29,7 @@ const routes: Routes = [
   { path: 'products', component: AllProductsComponent},
   { path: 'cart', component: CartComponent },
   { path: 'checkout', component: CheckoutComponent },
+  {path: 'thanks', component: ThanksComponent},
   {
     path: 'admin', component: DashboardComponent,
     canActivate: [AuthGuard],
@@ -42,7 +47,8 @@ const routes: Routes = [
       {path: 'stock/edit/:id', component: EditStockComponent,},
       {path: 'stock', component: ViewStockComponent},
       { path: 'edit-store/:id', component: EditStoreComponent },
-      { path: 'edit-store', component: EditStoreComponent }
+      { path: 'edit-store', component: EditStoreComponent },
+      {path: "stock/consumption-history/:stockId", component: ViewStockConsumptionComponent}
     ]
   },
   { path: '**', redirectTo: '/welcome' }

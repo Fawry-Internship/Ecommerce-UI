@@ -13,8 +13,7 @@ export class ViewCouponConsumptionComponent implements OnInit{
     "consumptionDate",
     "discountValue",
     "orderId",
-    "customerEmail",
-    "coupon"
+    "customerEmail"
   ]
 
   consumptionList:ConsumptionHistory[]=[];

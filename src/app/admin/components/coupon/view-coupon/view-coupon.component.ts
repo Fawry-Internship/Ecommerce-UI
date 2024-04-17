@@ -45,6 +45,7 @@ export class ViewCouponComponent implements OnInit {
         console.error('Error deleting coupon:', error);
       }
     );
+    window.location.reload();
   }
 
   applyFilter(): void {

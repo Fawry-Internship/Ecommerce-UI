@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Stock } from '../../../../shared/models/stock';
 import { StockService } from '../../../services/stock.service';
@@ -16,7 +16,8 @@ export class EditStockComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private fb: FormBuilder,
-    private stockService: StockService
+    private stockService: StockService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -40,17 +41,20 @@ export class EditStockComponent implements OnInit {
   initStockForm(stock: Stock): void {
     this.stockForm = this.fb.group({
       quantity: [stock.quantity !== undefined ? stock.quantity : null, Validators.required],
-      productCode: { value: stock.productCode, disabled: true },
-      storeId:{ value: stock.storeId, disabled: true },
+      productCode: [stock.productCode],
+      storeId: { value: stock.storeId, disabled: true },
     });
   }
+
 
   onSubmit(): void {
     if (this.stockForm.valid) {
       const updatedStock = this.stockForm.value;
+      console.log(updatedStock)
       this.stockService.updateStock(this.stockId, updatedStock).subscribe(
         (response: Stock) => {
           console.log('Stock updated successfully:', response);
+          this.router.navigate(['/admin/stock'])
         },
         (error: any) => {
           console.error('Error updating stock:', error);

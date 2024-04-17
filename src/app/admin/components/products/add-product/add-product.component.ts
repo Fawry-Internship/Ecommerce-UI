@@ -55,6 +55,7 @@ export class AddProductComponent implements OnInit {
           this.router.navigate(['admin/products']);
           console.log('New product created:', createdProduct);
           this.productForm.reset();
+          window.location.reload()
         },
         (error) => {
           console.error('Error creating product:', error);

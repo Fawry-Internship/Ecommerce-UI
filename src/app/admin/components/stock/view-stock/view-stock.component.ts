@@ -56,6 +56,7 @@ export class ViewStockComponent implements OnInit, OnDestroy {
       this.stocks = this.stocks.filter(stock => stock.id !== stockId);
       this.filteredStocks = this.filteredStocks.filter(stock => stock.id !== stockId);
     });
+    window.location.reload()
   }
 
   searchStocks(event: any): void {
