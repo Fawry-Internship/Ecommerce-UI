@@ -15,7 +15,6 @@ import { CheckoutModule } from 'src/app/customer/checkout/checkout.module';
 
 
 
-
 @NgModule({
     declarations: [
         AppComponent,
@@ -24,6 +23,7 @@ import { CheckoutModule } from 'src/app/customer/checkout/checkout.module';
         LoginComponent,
         AllProductsComponent,
         ProductsDetailsComponent,
+        
     ],
     providers: [],
     bootstrap: [AppComponent],

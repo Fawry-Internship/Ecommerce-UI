@@ -16,8 +16,7 @@ import {ViewStockComponent} from "./admin/components/stock/view-stock/view-stock
 import { CartComponent } from 'src/app/customer/cart/components/cart/cart.component';
 import { CheckoutComponent } from 'src/app/customer/checkout/components/checkout/checkout.component';
 import {EditCouponComponent} from "./admin/components/coupon/edit-coupon/edit-coupon.component";
-
-
+import { EditStoreComponent } from './admin/components/store/edit-store/edit-store.component';
 const routes: Routes = [
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: 'welcome', component: WelcomeComponent },
@@ -39,7 +38,9 @@ const routes: Routes = [
       {path: 'products/edit/:id', component: EditProductComponent},
       {path: 'stock/edit', component: EditStockComponent},
       {path: 'stock/edit/:id', component: EditStockComponent,},
-      {path: 'stock', component: ViewStockComponent}
+      {path: 'stock', component: ViewStockComponent},
+      { path: 'edit-store/:id', component: EditStoreComponent },
+      { path: 'edit-store', component: EditStoreComponent }
     ]
   },
   { path: '**', redirectTo: '/welcome' }

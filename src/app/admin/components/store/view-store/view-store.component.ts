@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StoreService } from '../../../services/store.service';
 import { Store } from 'src/app/shared/models/store';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-view-store',
   templateUrl: './view-store.component.html',
@@ -14,8 +14,9 @@ export class ViewStoreComponent implements OnInit {
   searchTerm: string = '';
   storeForm!: FormGroup;
   editingStoreId: number = -1;
+  
 
-  constructor(private storeService: StoreService, private fb: FormBuilder) {}
+  constructor(private storeService: StoreService, private fb: FormBuilder,private router: Router) {}
 
   ngOnInit(): void {
     this.getAllStores();
@@ -38,37 +39,20 @@ export class ViewStoreComponent implements OnInit {
   }
 
   editStore(storeId: number): void {
-    const selectedStore = this.stores.find(store => store.id === storeId);
-    if (selectedStore) {
-      this.storeForm.patchValue(selectedStore);
-      this.editingStoreId = storeId;
-    }
+    this.router.navigate(['/admin/edit-store', storeId]);
   }
 
-  onEditSubmit() {
-    if (this.storeForm.valid) {
-      this.storeService.updateStore(this.editingStoreId, this.storeForm.value).subscribe(
-        updatedStore => {
-          console.log('Store updated:', updatedStore);
-          this.getAllStores();
-          this.resetForm();
-        },
-        error => {
-          console.error('Error updating store:', error);
-        }
-      );
-    } else {
-      console.error('Form is invalid.');
-    }
-  }
-
+  
+ 
   deleteStore(storeId: number): void {
-    // Logic to delete store
+    this.storeService.deleteStoreById(storeId).subscribe(() => {
+      console.log(`Store with ID ${storeId} deleted successfully.`);
+      this.stores = this.stores.filter(store => store.id !== storeId);
+      this.getAllStores();
+    });
   }
 
-  applyFilter(): void {
 
-  }
 
   resetForm(): void {
     this.storeForm.reset();

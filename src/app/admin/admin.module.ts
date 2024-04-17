@@ -27,7 +27,7 @@ import {EditProductComponent} from "./components/products/edit-product/edit-prod
 import {AddStoreComponent} from "./components/store/add-store/add-store.component";
 import {ViewStoreComponent} from "./components/store/view-store/view-store.component";
 import { EditCouponComponent } from './components/coupon/edit-coupon/edit-coupon.component';
-
+import { EditStoreComponent } from './components/store/edit-store/edit-store.component';
 @NgModule({
   declarations: [
     SidebarMenuComponent,
@@ -51,7 +51,8 @@ import { EditCouponComponent } from './components/coupon/edit-coupon/edit-coupon
     ViewStockComponent,
     EditStockComponent,
     AddStockComponent,
-    EditCouponComponent
+    EditCouponComponent,
+    EditStoreComponent
   ],
   imports: [
     CommonModule,

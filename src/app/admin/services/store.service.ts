@@ -29,4 +29,7 @@ export class StoreService {
   updateStore(storeId: number, store: Store): Observable<Store> {
     return this.http.put<Store>(`${this.baseUrl}/update/${storeId}`, store);
   }
+  getById(storeId: number): Observable<Store> {
+    return this.http.get<Store>(`${this.baseUrl}/get/${storeId}`);
+  }
 }
