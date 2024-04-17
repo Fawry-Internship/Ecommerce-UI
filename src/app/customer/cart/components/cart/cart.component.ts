@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 import { CartService } from 'src/app/customer/cart/services/cart.service';
 import { Router } from '@angular/router';
+import {Product} from "../../../../shared/models/product";
 
 @Component({
   selector: 'app-cart',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class CartComponent {
   items;
 
-  constructor(private cartService: CartService , private router: Router) { 
+  constructor(private cartService: CartService , private router: Router) {
     this.items = this.cartService.getItems();
   }
 
@@ -21,6 +22,7 @@ export class CartComponent {
   navigateTo(path: string): void {
     this.router.navigate([path]);
   }
- 
-
+  checkout(item: any) {
+    this.router.navigate(['/checkout'], { state: { item } });
+  }
 }

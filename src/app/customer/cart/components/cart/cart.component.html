@@ -1,23 +1,36 @@
-<!-- cart.component.html -->
 <div class="container" *ngIf="items.length; else emptyCart">
   <h2>Your Cart</h2>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of items">
-        <td>{{ item.name }}</td>
-        <td>{{ item.price }}</td>
-        <td><button class="btn btn-danger" (click)="removeFromCart(item)">Remove from cart</button></td>
-      </tr>
-    </tbody>
-  </table>
-  <button class="btn btn-primary" (click)="navigateTo('checkout')">Checkout</button>
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of items">
+          <td><img [src]="item.imageUrl" [alt]="item.name" class="img-thumbnail" style="max-width: 100px;"></td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.price }}</td>
+          <td><button class="btn btn-danger" (click)="removeFromCart(item)">Remove from cart</button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Total Items: {{ items.length }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Total Price: {{ items[0].price }}</h6>
+          <button class="btn btn-primary btn-block" (click)="checkout(items[0])">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <ng-template #emptyCart>
@@ -25,7 +38,3 @@
     <p>Your cart is empty.</p>
   </div>
 </ng-template>
-
-
-
-
